@@ -1,4 +1,5 @@
 const express = require('express');
+const fab = require('./modules/fabricantes/fabricante');
 
 const routes = express.Router();
 
