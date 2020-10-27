@@ -5,6 +5,7 @@ const pModel = require('./modules/printer_model/priter_model');
 const cart_status = require('./modules/cartridge/cart_status/cart_status.js');
 const cart_model = require('./modules/cartridge/cart_model/cart_model');
 const cart_entrada = require('./modules/cartridge/cart_data_entrada/cart_data_entrada');
+const cart_saida = require('./modules/cartridge/cart_data_saida/cart_data_saida');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(pModel);
 app.use(cart_status);
 app.use(cart_model);
 app.use(cart_entrada);
+app.use(cart_saida);
 
 app.listen(3000);
 

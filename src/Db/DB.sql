@@ -1,6 +1,8 @@
 PRAGMA foreign_keys = ON;
 PRAGMA foreign_keys;
 
+-- adicionar ordens de coleta.
+
 CREATE TABLE IF NOT EXISTS usuarios(
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT(100) NOT NULL,
@@ -55,15 +57,17 @@ CREATE TABLE IF NOT EXISTS cart_data_entrada(
     data TEXT(30) NOT NULL,
     f_usuario INTEGER NOT NULL,
     FOREIGN KEY (f_usuario) REFERENCES usuarios(ID)
+    -- get|post feito
 );
-DELETE from cart_data_entrada;
-INSERT INTO cart_data_entrada VALUES(?, "26-9-2020-13:50:15", 0);
+-- DELETE from cart_data_entrada;
+-- INSERT INTO cart_data_entrada VALUES(?, "26-9-2020-13:50:15", 0);
 
 CREATE TABLE IF NOT EXISTS cart_data_saida(
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     data TEXT(30) NOT NULL,
     f_usuario INTEGER NOT NULL,
     FOREIGN KEY (f_usuario) REFERENCES usuarios(ID)
+    -- get|post feito
 );
 
 CREATE TABLE IF NOT EXISTS cart_data_instalacao(
