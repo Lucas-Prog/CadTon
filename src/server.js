@@ -2,6 +2,9 @@ const express = require('express');
 const routes = require('./routes');
 const fab = require('./modules/fabricantes/fabricante');
 const pModel = require('./modules/printer_model/priter_model');
+const cart_status = require('./modules/cartridge/cart_status/cart_status.js');
+const cart_model = require('./modules/cartridge/cart_model/cart_model');
+const cart_entrada = require('./modules/cartridge/cart_data_entrada/cart_data_entrada');
 
 const app = express();
 
@@ -10,7 +13,9 @@ app.use(express.json());
 app.use(routes);
 app.use(fab);
 app.use(pModel);
-
+app.use(cart_status);
+app.use(cart_model);
+app.use(cart_entrada);
 
 app.listen(3000);
 

@@ -7,10 +7,12 @@ CREATE TABLE IF NOT EXISTS usuarios(
     login TEXT(50) NOT NULL UNIQUE,
     senha TEXT(20) NOT NULL
 );
+INSERT INTO usuarios VALUES(?, "root", "root", "root");
 
 CREATE TABLE IF NOT EXISTS fabricante(
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    Name TEXT(80) NOT NULL
+    Name TEXT(80) NOT NULL UNIQUE
+    -- rota criada
 );
 
 -- INSERT INTO fabricante VALUES(?, "Samsung");
@@ -23,6 +25,7 @@ CREATE TABLE IF NOT EXISTS imp_models(
     Description TEXT(150),
     f_fabricante INTEGER  NOT NULL,
     FOREIGN KEY (f_fabricante) REFERENCES fabricante(ID)
+    -- rota parcialmente criada
 );
 
 CREATE TABLE IF NOT EXISTS impressoras(
@@ -35,14 +38,16 @@ CREATE TABLE IF NOT EXISTS impressoras(
 
 CREATE TABLE IF NOT EXISTS cart_estado(
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    situacao TEXT(100) NOT NULL
+    situacao TEXT(100) NOT NULL UNIQUE
+    -- rota criada
 );
 
 CREATE TABLE IF NOT EXISTS cart_model(
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    nome TEXT(100) NOT NULL,
+    nome TEXT(100) NOT NULL UNIQUE,
     f_imp_model INTEGER NOT NULL,
     FOREIGN KEY (f_imp_model) REFERENCES imp_models(ID)
+    -- rota criada, talvez adicionar um campo COR, alem do nome
 );
 
 CREATE TABLE IF NOT EXISTS cart_data_entrada(
@@ -51,6 +56,8 @@ CREATE TABLE IF NOT EXISTS cart_data_entrada(
     f_usuario INTEGER NOT NULL,
     FOREIGN KEY (f_usuario) REFERENCES usuarios(ID)
 );
+DELETE from cart_data_entrada;
+INSERT INTO cart_data_entrada VALUES(?, "26-9-2020-13:50:15", 0);
 
 CREATE TABLE IF NOT EXISTS cart_data_saida(
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
