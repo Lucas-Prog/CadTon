@@ -36,7 +36,9 @@ CREATE TABLE IF NOT EXISTS impressoras(
     Cod INTEGER NOT NULL UNIQUE,
     Local TEXT(100) NOT NULL,
     Status TEXT(50) NOT NULL,
-    n_serie TEXT(100) NOT NULL UNIQUE
+    n_serie TEXT(100) NOT NULL UNIQUE,
+    f_imp INTEGER,
+    FOREIGN KEY (f_imp) REFERENCES imp_models(ID)
     -- get|post criados.
 );
 
