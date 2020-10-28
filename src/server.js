@@ -16,6 +16,7 @@ const app = express();
 app.use(express.json());
 app.use(routes);
 app.use(fab);
+app.use(printers);
 app.use(pModel);
 app.use(cart_status);
 app.use(cart_model);
@@ -23,7 +24,6 @@ app.use(cart_entrada);
 app.use(cart_saida);
 app.use(cart_install);
 app.use(cart_baixa);
-app.use(printers);
 
 app.listen(3000);
 

@@ -18,7 +18,7 @@ router.get('/printers', async (req, res) =>{
 
 router.post('/printers', async (req, res) =>{
     try{
-        db.run(`insert into impressoras values(?, "${req.body.cod}", "${req.body.local}", "${req.body.status}", "${req.body.n_serial}")`, (err)=>{
+        db.run(`insert into impressoras values(?, "${req.body.cod}", "${req.body.local}", "${req.body.status}", "${req.body.n_serial}", ${req.body.imp})`, (err)=>{
             if(err){
                 res.status(400).send({"message": "error", "err": err})
                 console.log(err)
