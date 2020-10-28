@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS usuarios(
     nome TEXT(100) NOT NULL,
     login TEXT(50) NOT NULL UNIQUE,
     senha TEXT(20) NOT NULL
+    -- get|post criado.
 );
 INSERT INTO usuarios VALUES(?, "root", "root", "root");
 
@@ -35,7 +36,8 @@ CREATE TABLE IF NOT EXISTS impressoras(
     Cod INTEGER NOT NULL UNIQUE,
     Local TEXT(100) NOT NULL,
     Status TEXT(50) NOT NULL,
-    n_serie TEXT(100) NOT NULL
+    n_serie TEXT(100) NOT NULL UNIQUE
+    -- get|post criados.
 );
 
 CREATE TABLE IF NOT EXISTS cart_estado(
@@ -75,13 +77,17 @@ CREATE TABLE IF NOT EXISTS cart_data_instalacao(
     data TEXT(30) NOT NULL,
     f_usuario INTEGER NOT NULL,
     FOREIGN KEY (f_usuario) REFERENCES usuarios(ID)
+    -- get|post criados
 );
+
+-- select cart_data_instalacao.*, usuarios.nome from cart_data_instalacao inner join usuarios on usuarios.ID = cart_data_instalacao.f_usuario;
 
 CREATE TABLE IF NOT EXISTS cart_data_baixa(
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     data TEXT(30) NOT NULL,
     f_usuario INTEGER NOT NULL,
     FOREIGN KEY (f_usuario) REFERENCES usuarios(ID)
+    -- get|post criados
 );
 
 CREATE TABLE IF NOT EXISTS cartuchos(
