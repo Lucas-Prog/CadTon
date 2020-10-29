@@ -6,7 +6,7 @@ router.get('/cart_install', async (req, res) =>{
     try{
         db.all("select cart_data_instalacao.*, usuarios.nome as usuario  from cart_data_instalacao inner join usuarios on usuarios.ID = cart_data_instalacao.f_usuario;", (err, rows) =>{
             if(err){
-                res.status(400).json({"error": err.messange});
+                res.status(400).json({"error": err.message});
             }else{
                 res.status(200).json({rows})
             }

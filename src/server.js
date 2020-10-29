@@ -1,5 +1,6 @@
 const express = require('express');
 const routes = require('./routes');
+const users = require('./modules/users/users');
 const fab = require('./modules/fabricantes/fabricante');
 const pModel = require('./modules/printer_model/priter_model');
 const printers = require('./modules/printers/printers');
@@ -15,6 +16,7 @@ const app = express();
 
 app.use(express.json());
 app.use(routes);
+app.use(users);
 app.use(fab);
 app.use(printers);
 app.use(pModel);

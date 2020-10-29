@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS usuarios(
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT(100) NOT NULL,
     login TEXT(50) NOT NULL UNIQUE,
-    senha TEXT(20) NOT NULL
+    -- senha TEXT(20) NOT NULL
     -- get|post criado.
 );
 INSERT INTO usuarios VALUES(?, "root", "root", "root");
