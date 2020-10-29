@@ -6,11 +6,14 @@ PRAGMA foreign_keys;
 CREATE TABLE IF NOT EXISTS usuarios(
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT(100) NOT NULL,
-    login TEXT(50) NOT NULL UNIQUE,
+    login TEXT(50) NOT NULL UNIQUE
     -- senha TEXT(20) NOT NULL
     -- get|post criado.
 );
-INSERT INTO usuarios VALUES(?, "root", "root", "root");
+INSERT INTO usuarios VALUES(?, "root", "95825-7");
+INSERT INTO usuarios VALUES(?, "teste", "94745-3");
+
+drop TABLE usuarios;
 
 CREATE TABLE IF NOT EXISTS fabricante(
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
