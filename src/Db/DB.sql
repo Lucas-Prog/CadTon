@@ -12,8 +12,9 @@ CREATE TABLE IF NOT EXISTS usuarios(
 );
 INSERT INTO usuarios VALUES(?, "root", "95825-7");
 INSERT INTO usuarios VALUES(?, "teste", "94745-3");
+select nome FROM usuarios WHERE login = "95825-7";
 
-drop TABLE usuarios;
+-- drop TABLE usuarios;
 
 CREATE TABLE IF NOT EXISTS fabricante(
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
