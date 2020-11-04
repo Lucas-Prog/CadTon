@@ -11,6 +11,7 @@ const cart_entrada = require('./modules/cartridge/cart_data_entrada/cart_data_en
 const cart_saida = require('./modules/cartridge/cart_data_saida/cart_data_saida');
 const cart_install = require('./modules/cartridge/cart_data_instala/cart_data_instala');
 const cart_baixa = require('./modules/cartridge/cart_data_baixa/cart_data_baixa');
+const cartridges = require('./modules/cartridge/cartridges/cartridges');
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use(cart_entrada);
 app.use(cart_saida);
 app.use(cart_install);
 app.use(cart_baixa);
+app.use(cartridges);
 
 app.listen(3000);
 
