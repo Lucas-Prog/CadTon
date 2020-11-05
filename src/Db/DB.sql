@@ -60,23 +60,23 @@ CREATE TABLE IF NOT EXISTS cart_model(
     -- rota criada, talvez adicionar um campo COR, alem do nome
 );
 
-CREATE TABLE IF NOT EXISTS cart_data_entrada(
-    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    data TEXT(30) NOT NULL,
-    f_usuario INTEGER NOT NULL,
-    FOREIGN KEY (f_usuario) REFERENCES usuarios(ID)
-    -- get|post feito
-);
+-- CREATE TABLE IF NOT EXISTS cart_data_entrada(
+--     ID INTEGER PRIMARY KEY AUTOINCREMENT,
+--     data TEXT(30) NOT NULL,
+--     f_usuario INTEGER NOT NULL,
+--     FOREIGN KEY (f_usuario) REFERENCES usuarios(ID)
+--     -- get|post feito
+-- );
 -- DELETE from cart_data_entrada;
 -- INSERT INTO cart_data_entrada VALUES(?, "26-9-2020-13:50:15", 0);
 
-CREATE TABLE IF NOT EXISTS cart_data_saida(
-    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    data TEXT(30) NOT NULL,
-    f_usuario INTEGER NOT NULL,
-    FOREIGN KEY (f_usuario) REFERENCES usuarios(ID)
-    -- get|post feito
-);
+-- CREATE TABLE IF NOT EXISTS cart_data_saida(
+--     ID INTEGER PRIMARY KEY AUTOINCREMENT,
+--     data TEXT(30) NOT NULL,
+--     f_usuario INTEGER NOT NULL,
+--     FOREIGN KEY (f_usuario) REFERENCES usuarios(ID)
+--     -- get|post feito
+-- );
 
 CREATE TABLE IF NOT EXISTS cart_data_instalacao(
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -98,20 +98,16 @@ CREATE TABLE IF NOT EXISTS cart_data_baixa(
 
 CREATE TABLE IF NOT EXISTS cartuchos(
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    n_serie TEXT(100) NOT NULL,
+    n_serie TEXT(100) NOT NULL UNIQUE,
+    data_entrada INTEGER NOT NULL,
+    data_baixa INTEGER,
     f_cart_model INTEGER NOT NULL,
-    f_data_entrada INTEGER NOT NULL,
-    f_data_instalacao INTEGER NOT NULL,
-    f_data_baixa INTEGER NOT NULL,
-    f_data_entrega INTEGER NOT NULL,
-    f_imp_instalado INTEGER NOT NULL,
+    f_data_instalacao INTEGER,
+    f_imp_instalado INTEGER,
     f_cart_estado INTEGER NOT NULL,
     comentario TEXT(100),
     FOREIGN KEY (f_cart_model) REFERENCES cart_model(ID),
-    FOREIGN KEY (f_data_entrada) REFERENCES cart_data_entrada(ID),
     FOREIGN KEY (f_data_instalacao) REFERENCES cart_data_instalacao(ID),
-    FOREIGN KEY (f_data_baixa) REFERENCES cart_data_baixa(ID),
-    FOREIGN KEY (f_data_entrega) REFERENCES cart_data_entrada(ID),
     FOREIGN KEY (f_imp_instalado) REFERENCES impressoras(ID),
     FOREIGN KEY (f_cart_estado) REFERENCES cart_estado(ID)
 );
