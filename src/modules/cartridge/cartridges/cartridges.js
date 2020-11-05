@@ -17,7 +17,10 @@ router.get('/cartridges', async(req, res)=>{
 
 router.post('/cartridges', async(req, res) =>{
     try{
-        db.run(`insert into cartuchos values (?, "${}")`)
+        db.run(`insert into cartuchos values 
+        (?, "${req.body.n_serie}", "${req.body.cart_model}", "${req.body.data_entrada}", 
+        "${req.body.data_instala}", "${req.body.data_baixa}", "${req.body.data_entrega}", 
+        "${req.body.imp_instalado}", "${req.body.cart_estado}", "${req.body.comentario}")`);
     }catch(e){
         console.log(e);
     }
